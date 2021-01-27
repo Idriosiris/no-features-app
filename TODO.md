@@ -1,3 +1,10 @@
+ToDo
+-
 - Create walking skeleton
-  - Remove useless code
   - Database connection
+  
+Done
+- 
+- Testing is possible
+- Server is running
+- Remove useless code 
