@@ -9,5 +9,6 @@ describe("Server /healthcheck works", () => {
         const healthcheckCall = await request(app).get("/healthcheck");
 
         expect(healthcheckCall.statusCode).toEqual(200);
+        expect(healthcheckCall.text).toEqual("ok");
     });
 });

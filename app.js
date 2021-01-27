@@ -18,7 +18,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 app.use('/healthcheck', (req, res) => {
-    res.send(200);
+    res.send(200, "ok");
 });
 
 module.exports = app;
