@@ -1,4 +1,4 @@
 - Create walking skeleton
+  - Testing is possible
   - Server is running 
   - Database connection
-  
