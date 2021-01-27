@@ -1,4 +1,3 @@
 - Create walking skeleton
-  - Testing is possible
-  - Server is running 
+  - Remove useless code
   - Database connection
