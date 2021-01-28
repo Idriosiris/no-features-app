@@ -1,10 +1,10 @@
-var express = require('express');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+import express from 'express';
+import cookieParser from 'cookie-parser';
+import logger from 'morgan';
 
-var indexRouter = require('./routes');
+import indexRouter from './routes';
 
-var app = express();
+let app = express();
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -14,7 +14,7 @@ app.use(cookieParser());
 app.use('/', indexRouter);
 
 app.use('/healthcheck', (req, res) => {
-    res.send(200, "ok");
+    res.status(200).send("ok");
 });
 
-module.exports = app;
+export default app;

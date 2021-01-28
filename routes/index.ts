@@ -1,9 +1,9 @@
-var express = require('express');
-var router = express.Router();
+import express from 'express';
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.send(200, "Welcome to the backend of the useless app");
+let router = express.Router();
+
+router.get('/', function(req, res) {
+  res.status(200).send("Welcome to the backend of the useless app");
 });
 
-module.exports = router;
+export default router;
