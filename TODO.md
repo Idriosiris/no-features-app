@@ -4,6 +4,7 @@ ToDo
   - Fix tests to work with typescript
   - Compile project from typescript to javascript in the /build
   - Change typescript strict from false to true
+  - Debugger should work in IntelliJ
   - Database connection
   - Run unit tests against every commit
   - Run integration tests
