@@ -1,6 +1,7 @@
 ToDo
 -
 - Create walking skeleton
+  - Fix tests to work with typescript
   - Compile project from typescript to javascript in the /build
   - Change typescript strict from false to true
   - Database connection
