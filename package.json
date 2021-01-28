@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "nodemon bin/www.ts",
-    "test": "jest"
+    "test": "jest",
+    "build": "tsc --project ./"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

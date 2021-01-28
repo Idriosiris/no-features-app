@@ -1,7 +1,6 @@
 ToDo
 -
 - Create walking skeleton
-  - Compile project from typescript to javascript in the /build
   - Change typescript strict from false to true
   - Debugger should work in IntelliJ
   - Database connection
@@ -11,6 +10,7 @@ ToDo
   
 Done
 - 
+- Compile project from typescript to javascript in the /build
 - Fix tests to work with typescript
 - Make project typescript aware
 - Testing is possible
