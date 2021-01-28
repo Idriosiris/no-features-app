@@ -1,6 +1,7 @@
 ToDo
 -
 - Create walking skeleton
+  - Make project typescript aware
   - Database connection
   - Run unit tests against every commit
   - Run integration tests
