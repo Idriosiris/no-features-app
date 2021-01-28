@@ -5,13 +5,14 @@ ToDo
   - Run unit tests against every commit
   - Run integration tests
   - Push application to live after every commit
+  - Decorators for declaring entry points into the API e.g @GET, @POST etc.
   
 Done
 - 
-- Change typescript strict from false to true
-- Compile project from typescript to javascript in the /build
-- Fix tests to work with typescript
-- Make project typescript aware
 - Testing is possible
 - Server is running
 - Remove useless code 
+- Make project typescript aware
+- Fix tests to work with typescript
+- Compile project from typescript to javascript in the /build
+- Change typescript strict from false to true

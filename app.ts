@@ -13,8 +13,4 @@ app.use(cookieParser());
 
 app.use('/', indexRouter);
 
-app.use('/healthcheck', (req, res) => {
-    res.status(200).send("ok");
-});
-
 export default app;
