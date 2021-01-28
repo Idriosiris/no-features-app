@@ -1,8 +1,6 @@
-const describe = require("@jest/globals").describe;
-const test     = require("@jest/globals").test;
-const expect   = require("@jest/globals").expect;
-const request  = require("supertest");
-const app      = require("../../app");
+import {describe, test, expect} from '@jest/globals';
+import request from 'supertest';
+import app from '../../app';
 
 describe("Server is running", () => {
     test("/healthcheck endpoint returning 200 and ok", async () => {
