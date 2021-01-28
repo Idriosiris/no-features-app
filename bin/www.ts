@@ -7,6 +7,8 @@
 import app from '../app';
 import http from 'http';
 import debug from 'debug';
+import ErrnoException = NodeJS.ErrnoException;
+import {AddressInfo} from "net";
 
 let noFeaturesAppDebugger = debug('no-features-app:server');
 
@@ -33,7 +35,7 @@ server.on('listening', onListening);
  * Normalize a port into a number, string, or false.
  */
 
-function normalizePort(val) {
+function normalizePort(val : string) {
   let port = parseInt(val, 10);
 
   if (isNaN(port)) {
@@ -53,7 +55,7 @@ function normalizePort(val) {
  * Event listener for HTTP server "error" event.
  */
 
-function onError(error) {
+function onError(error: ErrnoException) {
   if (error.syscall !== 'listen') {
     throw error;
   }
@@ -82,9 +84,15 @@ function onError(error) {
  */
 
 function onListening() {
-  let addr = server.address();
-  let bind = typeof addr === 'string'
-      ? 'pipe ' + addr
-      : 'port ' + addr.port;
-  noFeaturesAppDebugger('Listening on ' + bind);
+  let addr: AddressInfo | string | null = server.address();
+
+  if (addr != null){
+    let bind = typeof addr === 'string'
+        ? 'pipe ' + addr
+        : 'port ' + addr.port;
+
+    noFeaturesAppDebugger('Listening on ' + bind);
+  }
+
+  noFeaturesAppDebugger('Something went wrong, server address is null.');
 }
