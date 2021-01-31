@@ -1,6 +1,7 @@
 ToDo
 -
 - Create walking skeleton
+  - Make database connection Singleton
   - Close pool Connection on 'exit' 
   - Turn database-connection.ts into class?
   - Improve dependency injection?
