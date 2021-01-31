@@ -6,6 +6,7 @@ ToDo
   - Run unit tests against every commit
   - Run integration tests
   - Push application to live after every commit
+  - Hide database credentials from sourcecode 
   - Decorators for declaring entry points into the API e.g @GET, @POST etc.
   
 Done
