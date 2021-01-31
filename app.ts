@@ -5,7 +5,7 @@ import logger from 'morgan';
 import indexRouter from './routes';
 import {App} from "./app1";
 
-let app = new App().constructApp();
+let app = new App().theApp();
 
 initMiddlewares();
 initRoutes();

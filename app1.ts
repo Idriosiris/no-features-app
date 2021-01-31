@@ -1,7 +1,13 @@
-import express from "express";
+import express, {Express} from "express";
 
 export class App {
-    constructApp() {
-        return express();
+    private app: Express;
+
+    constructor() {
+        this.app = express();
+    }
+
+    theApp(){
+        return this.app;
     }
 }
