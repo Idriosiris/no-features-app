@@ -1,39 +1,16 @@
 #!/usr/bin/env node
 
-/**
- * Module dependencies.
- */
-
 import app from '../app';
-import http from 'http';
-import debug from 'debug';
-import ErrnoException = NodeJS.ErrnoException;
-import {AddressInfo} from "net";
 
-let noFeaturesAppDebugger = debug('no-features-app:server');
-
-/**
- * Get port from environment and store in Express.
- */
 let port = normalizePort(process.env.PORT || '3000');
+
 app.set('port', port);
 
-/**
- * Create HTTP server.
- */
-let server = http.createServer(app);
+app.listen(port, () => {
+  console.log(`App listening on the http://localhost:${port}`)
+})
 
-/**
- * Listen on provided port, on all network interfaces.
- */
-
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
-
-/**
- * Normalize a port into a number, string, or false.
- */
+app.on('error', onError);
 
 function normalizePort(val : string) {
   let port = parseInt(val, 10);
@@ -51,11 +28,7 @@ function normalizePort(val : string) {
   return false;
 }
 
-/**
- * Event listener for HTTP server "error" event.
- */
-
-function onError(error: ErrnoException) {
+function onError(error: any) {
   if (error.syscall !== 'listen') {
     throw error;
   }
@@ -77,22 +50,4 @@ function onError(error: ErrnoException) {
     default:
       throw error;
   }
-}
-
-/**
- * Event listener for HTTP server "listening" event.
- */
-
-function onListening() {
-  let addr: AddressInfo | string | null = server.address();
-
-  if (addr != null){
-    let bind = typeof addr === 'string'
-        ? 'pipe ' + addr
-        : 'port ' + addr.port;
-
-    noFeaturesAppDebugger('Listening on ' + bind);
-  }
-
-  noFeaturesAppDebugger('Something went wrong, server address is null.');
 }
