@@ -3,15 +3,12 @@ import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 
 import indexRouter from './routes';
+import {App} from "./app1";
 
-let app = constructApp();
+let app = new App().constructApp();
 
 initMiddlewares();
 initRoutes();
-
-function constructApp() {
-    return express();
-}
 
 function initMiddlewares() {
     app.use(logger('dev'));
