@@ -13,3 +13,7 @@ describe("Database is running", () => {
         expect(healthcheck).toEqual("Database up and running!");
     });
 });
+
+afterAll(() => {
+    DatabaseConnection.connection().end().then(() => console.log("Connection is done"));
+})
