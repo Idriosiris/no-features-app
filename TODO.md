@@ -1,8 +1,9 @@
 ToDo
 -
 - Create walking skeleton
-  - Make db connection in separate module/class
   - Close pool Connection on 'exit' 
+  - Turn database-connection.ts into class?
+  - Improve dependency injection?
   - Run unit tests against every commit
   - Run integration tests
   - Push application to live after every commit
@@ -20,3 +21,4 @@ Done
 - Change typescript strict from false to true
 - Do not run the tests from the build directory 
 - Database connection
+- Make db connection in separate module/class
