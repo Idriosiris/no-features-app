@@ -1,7 +1,6 @@
 ToDo
 -
 - Create walking skeleton
-  - Make database connection Singleton
   - Close pool Connection on 'exit' 
   - Turn database-connection.ts into class?
   - Improve dependency injection?
@@ -23,3 +22,4 @@ Done
 - Do not run the tests from the build directory 
 - Database connection
 - Make db connection in separate module/class
+- Make database connection Singleton
