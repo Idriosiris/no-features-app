@@ -6,11 +6,21 @@ let app = new App().theApp();
 
 let port = normalizePort(process.env.PORT || '3000');
 
-app.listen(port, () => {
-  console.log(`App listening on the http://localhost:${port}`)
-})
+initListeners();
 
-app.on('error', onError);
+startListening();
+
+function startListening() {
+  app.listen(port, () => {
+    console.log(`App listening on the http://localhost:${port}`)
+  })
+
+}
+
+function initListeners() {
+  app.on('error', onError);
+
+}
 
 function normalizePort(val : string) {
   let port = parseInt(val, 10);
