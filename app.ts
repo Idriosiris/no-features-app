@@ -4,13 +4,24 @@ import logger from 'morgan';
 
 import indexRouter from './routes';
 
-let app = express();
+let app = constructApp();
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+initMiddlewares();
+initRoutes();
 
-app.use('/', indexRouter);
+function constructApp() {
+    return express();
+}
+
+function initMiddlewares() {
+    app.use(logger('dev'));
+    app.use(express.json());
+    app.use(express.urlencoded({extended: false}));
+    app.use(cookieParser());
+}
+
+function initRoutes() {
+    app.use('/', indexRouter);
+}
 
 export default app;
