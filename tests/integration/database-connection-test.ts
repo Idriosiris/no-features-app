@@ -14,6 +14,6 @@ describe("Database is running", () => {
     });
 });
 
-afterAll(() => {
-    DatabaseConnection.connection().end().then(() => console.log("Connection is done"));
-})
+afterAll(async () => {
+   await DatabaseConnection.end();
+});

@@ -16,4 +16,8 @@ export default class DatabaseConnection {
 
         return this.pool;
     }
+
+    static async end() {
+        await this.pool.end();
+    }
 }
