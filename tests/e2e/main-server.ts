@@ -1,6 +1,6 @@
 import {describe, test, expect} from '@jest/globals';
 import request from 'supertest';
-import {App} from "../../app1";
+import {App} from "../../app";
 
 describe("Server is running", () => {
     test("/healthcheck endpoint returning 200 and ok", async () => {

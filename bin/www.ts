@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import {App} from "../app1";
+import {App} from "../app";
 
 let app = new App();
 
