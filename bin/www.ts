@@ -4,8 +4,6 @@ import app from '../app';
 
 let port = normalizePort(process.env.PORT || '3000');
 
-app.set('port', port);
-
 app.listen(port, () => {
   console.log(`App listening on the http://localhost:${port}`)
 })
