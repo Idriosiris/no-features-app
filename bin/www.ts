@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 
-import app from '../app';
+import {App} from "../app1";
+
+let app = new App().theApp();
 
 let port = normalizePort(process.env.PORT || '3000');
 
