@@ -1,8 +1,16 @@
 #!/usr/bin/env node
 
 import {App} from "../app";
+import logger from "morgan";
+import express from "express";
+import cookieParser from "cookie-parser";
 
-let app = new App();
+let app = new App([
+  logger('dev'),
+  express.json(),
+  express.urlencoded({extended: false}),
+  cookieParser()
+]);
 
 let port = normalizePort(process.env.PORT || '3000');
 

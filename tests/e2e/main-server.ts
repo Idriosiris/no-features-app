@@ -1,10 +1,18 @@
 import {describe, test, expect} from '@jest/globals';
 import request from 'supertest';
 import {App} from "../../app";
+import logger from "morgan";
+import express from "express";
+import cookieParser from "cookie-parser";
 
 describe("Server is running", () => {
     test("/healthcheck endpoint returning 200 and ok", async () => {
-        let app = new App().theApp()
+        let app = new App([
+            logger('dev'),
+            express.json(),
+            express.urlencoded({extended: false}),
+            cookieParser()
+        ]).theApp()
 
         const healthcheckCall = await request(app).get("/healthcheck");
 
@@ -13,7 +21,12 @@ describe("Server is running", () => {
     });
 
     test("root endpoint returning welcome message", async () => {
-        let app = new App().theApp()
+        let app = new App([
+            logger('dev'),
+            express.json(),
+            express.urlencoded({extended: false}),
+            cookieParser()
+        ]).theApp()
 
         const healthcheckCall = await request(app).get("/");
 
