@@ -1,12 +1,12 @@
 import {describe, expect, test} from '@jest/globals';
 import {DatabaseHealthcheckRepository} from "../../repositories/database-healthcheck-repository";
-import {databaseConnection} from "../../config/database-connection";
+import DatabaseConnection from "../../config/database-connection";
 
 describe("Database is running", () => {
     test("can perform SELECT query", async () => {
         let databaseHealthcheckRepository;
 
-        databaseHealthcheckRepository = new DatabaseHealthcheckRepository(databaseConnection);
+        databaseHealthcheckRepository = new DatabaseHealthcheckRepository(DatabaseConnection.connection());
 
         let healthcheck = await databaseHealthcheckRepository.databaseHealthCheck();
 

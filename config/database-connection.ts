@@ -1,9 +1,19 @@
 import {Pool} from "pg";
 
-export const databaseConnection = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'NoFeaturesAppDB',
-    password: 'pa55word',
-    port: 5433
-})
+export default class DatabaseConnection {
+    private static pool: Pool;
+
+    static connection(): Pool{
+        if(!this.pool) {
+            this.pool = new Pool({
+                user: 'postgres',
+                host: 'localhost',
+                database: 'NoFeaturesAppDB',
+                password: 'pa55word',
+                port: 5433
+            })
+        }
+
+        return this.pool;
+    }
+}
