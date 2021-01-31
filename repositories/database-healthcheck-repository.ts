@@ -1,19 +1,16 @@
-import { Pool } from 'pg';
-
-const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'NoFeaturesAppDB',
-    password: 'pa55word',
-    port: 5433,
-})
+import {Pool} from "pg";
 
 export class DatabaseHealthcheckRepository {
+    private databaseConnection: Pool;
+
+    constructor(databaseConnection: Pool) {
+        this.databaseConnection = databaseConnection;
+    }
 
     async databaseHealthCheck(): Promise<string> {
         let databaseUpAndRunning: string;
 
-        const result = await pool.query('SELECT 1');
+        const result = await this.databaseConnection.query('SELECT 1');
 
         if (result.rowCount == 1) {
             databaseUpAndRunning = "Database up and running!";
