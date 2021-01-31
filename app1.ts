@@ -24,6 +24,12 @@ export class App {
         this.app.use('/', indexRouter);
     }
 
+    startListening(port: string | number | boolean) {
+        this.app.listen(port, () => {
+            console.log(`App listening on the http://localhost:${port}`)
+        })
+    }
+
     theApp(){
         return this.app;
     }

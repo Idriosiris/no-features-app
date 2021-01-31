@@ -2,24 +2,16 @@
 
 import {App} from "../app1";
 
-let app = new App().theApp();
+let app = new App();
 
 let port = normalizePort(process.env.PORT || '3000');
 
 initListeners();
 
-startListening();
-
-function startListening() {
-  app.listen(port, () => {
-    console.log(`App listening on the http://localhost:${port}`)
-  })
-
-}
+app.startListening(port);
 
 function initListeners() {
-  app.on('error', onError);
-
+  app.theApp().on('error', onError);
 }
 
 function normalizePort(val : string) {
