@@ -1,7 +1,6 @@
 ToDo
 -
 - Create walking skeleton
-  - Turn database-connection.ts into class?
   - Improve dependency injection?
   - Run unit tests against every commit
   - Run integration tests
