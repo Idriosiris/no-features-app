@@ -5,6 +5,7 @@ import logger from "morgan";
 import express from "express";
 import cookieParser from "cookie-parser";
 import indexRouter from "./src/routes";
+import localPort from "./src/utility/local-port";
 
 let app = new App([
   logger('dev'),
@@ -15,30 +16,12 @@ let app = new App([
   indexRouter
 ]);
 
-let port = normalizePort(process.env.PORT || '3000');
-
 initListeners();
 
-app.startListening(port);
+app.startListening(localPort);
 
 function initListeners() {
   app.theApp().on('error', onError);
-}
-
-function normalizePort(val : string) {
-  let port = parseInt(val, 10);
-
-  if (isNaN(port)) {
-    // named pipe
-    return val;
-  }
-
-  if (port >= 0) {
-    // port number
-    return port;
-  }
-
-  return false;
 }
 
 function onError(error: any) {
@@ -46,9 +29,9 @@ function onError(error: any) {
     throw error;
   }
 
-  let bind = typeof port === 'string'
-      ? 'Pipe ' + port
-      : 'Port ' + port;
+  let bind = typeof localPort === 'string'
+      ? 'Pipe ' + localPort
+      : 'Port ' + localPort;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
