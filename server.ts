@@ -16,34 +16,4 @@ let app = new App([
   indexRouter
 ]);
 
-initListeners();
-
 app.startListening(localPort);
-
-function initListeners() {
-  app.theApp().on('error', onError);
-}
-
-function onError(error: any) {
-  if (error.syscall !== 'listen') {
-    throw error;
-  }
-
-  let bind = typeof localPort === 'string'
-      ? 'Pipe ' + localPort
-      : 'Port ' + localPort;
-
-  // handle specific listen errors with friendly messages
-  switch (error.code) {
-    case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
-      process.exit(1);
-      break;
-    case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
-      process.exit(1);
-      break;
-    default:
-      throw error;
-  }
-}
