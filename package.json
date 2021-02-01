@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon bin/server.ts",
+    "start": "nodemon server.ts",
     "test": "jest",
     "build": "tsc --project ./"
   },

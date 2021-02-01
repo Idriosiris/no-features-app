@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-import {App} from "../app";
+import {App} from "./src/app";
 import logger from "morgan";
 import express from "express";
 import cookieParser from "cookie-parser";
-import indexRouter from "../routes";
+import indexRouter from "./src/routes";
 
 let app = new App([
   logger('dev'),

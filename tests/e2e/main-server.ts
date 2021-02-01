@@ -1,10 +1,10 @@
 import {describe, test, expect} from '@jest/globals';
 import request from 'supertest';
-import {App} from "../../app";
+import {App} from "../../src/app";
 import logger from "morgan";
 import express from "express";
 import cookieParser from "cookie-parser";
-import indexRouter from "../../routes";
+import indexRouter from "../../src/routes";
 
 describe("Server is running", () => {
     test("/healthcheck endpoint returning 200 and ok", async () => {

@@ -1,6 +1,6 @@
 import {describe, expect, test} from '@jest/globals';
-import {DatabaseHealthcheckRepository} from "../../repositories/database-healthcheck-repository";
-import DatabaseConnection from "../../config/database-connection";
+import {DatabaseHealthcheckRepository} from "../../src/repositories/database-healthcheck-repository";
+import DatabaseConnection from "../../src/config/database-connection";
 
 describe("Database is running", () => {
     test("can perform SELECT query", async () => {
