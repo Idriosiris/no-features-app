@@ -1,14 +1,13 @@
 import express, {Express} from "express";
-import indexRouter from "./routes";
 
 export class App {
     private app: Express;
 
-    constructor(_middlewares: any) {
+    constructor(_middlewares: any, _routers: any) {
         this.app = express();
 
         this.initMiddlewares(_middlewares);
-        this.initRoutes();
+        this.initRoutes(_routers);
     }
 
     initMiddlewares(_middlewares: { forEach: (arg0: (middleware: any) => void) => void; }) {
@@ -17,8 +16,10 @@ export class App {
         })
     }
 
-    initRoutes() {
-        this.app.use('/', indexRouter);
+    initRoutes(routers: { forEach: (arg0: (route: any) => void) => void; }) {
+        routers.forEach((route) => {
+            this.app.use('/', route);
+        });
     }
 
     startListening(port: string | number | boolean) {

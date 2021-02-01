@@ -4,6 +4,7 @@ import {App} from "../../app";
 import logger from "morgan";
 import express from "express";
 import cookieParser from "cookie-parser";
+import indexRouter from "../../routes";
 
 describe("Server is running", () => {
     test("/healthcheck endpoint returning 200 and ok", async () => {
@@ -12,6 +13,8 @@ describe("Server is running", () => {
             express.json(),
             express.urlencoded({extended: false}),
             cookieParser()
+        ], [
+            indexRouter
         ]).theApp()
 
         const healthcheckCall = await request(app).get("/healthcheck");
@@ -26,6 +29,8 @@ describe("Server is running", () => {
             express.json(),
             express.urlencoded({extended: false}),
             cookieParser()
+        ], [
+            indexRouter
         ]).theApp()
 
         const healthcheckCall = await request(app).get("/");

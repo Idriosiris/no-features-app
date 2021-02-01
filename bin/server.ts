@@ -4,12 +4,15 @@ import {App} from "../app";
 import logger from "morgan";
 import express from "express";
 import cookieParser from "cookie-parser";
+import indexRouter from "../routes";
 
 let app = new App([
   logger('dev'),
   express.json(),
   express.urlencoded({extended: false}),
   cookieParser()
+], [
+  indexRouter
 ]);
 
 let port = normalizePort(process.env.PORT || '3000');
