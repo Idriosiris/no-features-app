@@ -1,5 +1,4 @@
 import express, {Express} from "express";
-import localPort from "./utility/local-port";
 import {AppEventHandler} from "./interfaces/AppEventHandler";
 
 export class App {
@@ -37,7 +36,7 @@ export class App {
         })
     }
 
-    theApp(){
+    theApp() {
         return this.app;
     }
 }

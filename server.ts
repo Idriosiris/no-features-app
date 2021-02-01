@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import {App} from "./src/app";
 import logger from "morgan";
 import express from "express";
@@ -9,14 +7,14 @@ import localPort from "./src/utility/local-port";
 import {ErrorEventHandler} from "./src/config/error-event-handler";
 
 let app = new App([
-  logger('dev'),
-  express.json(),
-  express.urlencoded({extended: false}),
-  cookieParser()
+    logger('dev'),
+    express.json(),
+    express.urlencoded({extended: false}),
+    cookieParser()
 ], [
-  indexRouter
+    indexRouter
 ], [
-  new ErrorEventHandler()
+    new ErrorEventHandler()
 ]);
 
 app.startListening(localPort);
