@@ -1,7 +1,6 @@
 import express, {Express} from "express";
 import localPort from "./utility/local-port";
 import {AppEventHandler} from "./interfaces/AppEventHandler";
-import {ErrorEventHandler} from "./config/error-event-handler";
 
 export class App {
     private app: Express;
@@ -40,29 +39,5 @@ export class App {
 
     theApp(){
         return this.app;
-    }
-
-    private onError(error: any) {
-        if (error.syscall !== 'listen') {
-            throw error;
-        }
-
-        let bind = typeof localPort === 'string'
-            ? 'Pipe ' + localPort
-            : 'Port ' + localPort;
-
-        // handle specific listen errors with friendly messages
-        switch (error.code) {
-            case 'EACCES':
-                console.error(bind + ' requires elevated privileges');
-                process.exit(1);
-                break;
-            case 'EADDRINUSE':
-                console.error(bind + ' is already in use');
-                process.exit(1);
-                break;
-            default:
-                throw error;
-        }
     }
 }
