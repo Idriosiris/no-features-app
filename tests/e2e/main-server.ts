@@ -5,6 +5,7 @@ import logger from "morgan";
 import express from "express";
 import cookieParser from "cookie-parser";
 import indexRouter from "../../src/routes";
+import {ErrorEventHandler} from "../../src/config/error-event-handler";
 
 describe("Server is running", () => {
     test("/healthcheck endpoint returning 200 and ok", async () => {
@@ -15,6 +16,8 @@ describe("Server is running", () => {
             cookieParser()
         ], [
             indexRouter
+        ], [
+            new ErrorEventHandler()
         ]).theApp()
 
         const healthcheckCall = await request(app).get("/healthcheck");
@@ -31,6 +34,8 @@ describe("Server is running", () => {
             cookieParser()
         ], [
             indexRouter
+        ], [
+            new ErrorEventHandler()
         ]).theApp()
 
         const healthcheckCall = await request(app).get("/");

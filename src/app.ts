@@ -1,15 +1,17 @@
 import express, {Express} from "express";
 import localPort from "./utility/local-port";
+import {AppEventHandler} from "./interfaces/AppEventHandler";
+import {ErrorEventHandler} from "./config/error-event-handler";
 
 export class App {
     private app: Express;
 
-    constructor(_middlewares: any, _routers: any) {
+    constructor(_middlewares: any, _routers: any, _handlers: AppEventHandler[]) {
         this.app = express();
 
         this.initMiddlewares(_middlewares);
         this.initRoutes(_routers);
-        this.initListeners();
+        this.initListeners(_handlers);
     }
 
     initMiddlewares(_middlewares: { forEach: (arg0: (middleware: any) => void) => void; }) {
@@ -24,8 +26,10 @@ export class App {
         });
     }
 
-    initListeners() {
-        this.app.on('error', this.onError);
+    initListeners(handlers: AppEventHandler[]) {
+        handlers.forEach((aeh) => {
+            this.app.on(aeh.event, aeh.handler);
+        })
     }
 
     startListening(port: string | number | boolean) {

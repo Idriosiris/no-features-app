@@ -6,6 +6,7 @@ import express from "express";
 import cookieParser from "cookie-parser";
 import indexRouter from "./src/routes";
 import localPort from "./src/utility/local-port";
+import {ErrorEventHandler} from "./src/config/error-event-handler";
 
 let app = new App([
   logger('dev'),
@@ -14,6 +15,8 @@ let app = new App([
   cookieParser()
 ], [
   indexRouter
+], [
+  new ErrorEventHandler()
 ]);
 
 app.startListening(localPort);
