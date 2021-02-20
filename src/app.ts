@@ -18,9 +18,9 @@ export class App {
         })
     }
 
-    initRoutes(routers: { forEach: (arg0: (route: any) => void) => void; }) {
-        routers.forEach((route) => {
-            this.app.use('/', route);
+    initRoutes(routers: { forEach: (arg0: (controller: any) => void) => void; }) {
+        routers.forEach((controller) => {
+            this.app.use('/', controller.getRouter());
         });
     }
 

@@ -2,7 +2,7 @@ import {App} from "../app";
 import logger from "morgan";
 import express from "express";
 import cookieParser from "cookie-parser";
-import indexRouter from "../routes";
+import IndexController from "../routes";
 import {ErrorEventHandler} from "../config/error-event-handler";
 
 export class AppFactory {
@@ -13,7 +13,7 @@ export class AppFactory {
             express.urlencoded({extended: false}),
             cookieParser()
         ], [
-            indexRouter
+            new IndexController()
         ], [
             new ErrorEventHandler()
         ]).theApp();

@@ -1,13 +1,21 @@
-import express from 'express';
+import express, {Request, Response} from 'express';
 
-let router = express.Router();
+class IndexController {
+  private router = express.Router();
 
-router.get('/', function(req, res) {
-  res.status(200).send("Welcome to the backend of the useless app");
-});
+  constructor() {
+    this.router.get('/', function (req: Request, res: Response) {
+      res.status(200).send("Welcome to the backend of the useless app");
+    });
 
-router.get('/healthcheck', (req, res) => {
-  res.status(200).send("ok");
-});
+    this.router.get('/healthcheck', (req: Request, res: Response) => {
+      res.status(200).send("ok");
+    });
+  }
 
-export default router;
+  public getRouter(){
+    return this.router;
+  }
+}
+
+export default IndexController;
