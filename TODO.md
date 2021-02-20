@@ -2,6 +2,7 @@ ToDo
 -
 - Create walking skeleton
   - Improve dependency injection?
+    - Initialise routes using controller classes
   - Run unit tests against every commit
   - Run integration tests
   - Push application to live after every commit
