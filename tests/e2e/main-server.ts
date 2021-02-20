@@ -1,22 +1,9 @@
-import {describe, test, expect} from '@jest/globals';
+import {describe, expect, test} from '@jest/globals';
 import request from 'supertest';
-import {App} from "../../src/app";
-import logger from "morgan";
-import express, {Express} from "express";
-import cookieParser from "cookie-parser";
-import indexRouter from "../../src/routes";
-import {ErrorEventHandler} from "../../src/config/error-event-handler";
+import {Express} from "express";
+import {AppFactory} from "../../src/factories/app-factory";
 
-let app: Express = new App([
-    logger('dev'),
-    express.json(),
-    express.urlencoded({extended: false}),
-    cookieParser()
-], [
-    indexRouter
-], [
-    new ErrorEventHandler()
-]).theApp();
+let app: Express = new AppFactory().getApp();
 
 describe("Server is running", () => {
     test("/healthcheck endpoint returning 200 and ok", async () => {
